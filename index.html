@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joyas Casuales</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container" id="loginContainer">
+        <h1>Iniciar Sesión</h1>
+        <form id="loginForm">
+            <label for="username">Gerente Comercial Joyas Casuales</label>
+            <input type="text" id="username" placeholder="Usuario" value="admin" required>
+            
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password" placeholder="Contraseña" value="12345" required>
+            
+            <button type="submit">Ingresar</button>
+        </form>
+        <p id="loginError" style="color: red; display: none;">Usuario o contraseña incorrectos</p>
+    </div>
+
+    
+
+    <div class="container" id="surveyContainer" style="display: none;">
+        <h1>Información General</h1>
+        <form id="surveyForm">
+            <label for="question">Pregunta:</label>
+            <input type="text" id="question" placeholder="¿Cuál es tu restaurante favorito?" required>
+            
+            <label for="options">Opciones (separadas por comas):</label>
+            <input type="text" id="options" placeholder="Ejemplo: Sushi, Pizza, Hamburguesa" required>
+            
+            <button type="submit">Crear Encuesta</button>
+        </form>
+        <h1>Gestión</h1>
+        <div id="survey" style="display:none;">
+            <h2 id="surveyQuestion"></h2>
+            <ul id="surveyOptions"></ul>
+            <canvas id="resultsChart" width="400" height="200"></canvas>
+            <button id="viewResults">Ver Resultados</button>
+        </div>
+
+        <div id="survey" style="display:none;">            
+            <button id="viewResults">Ver Resultados</button>
+        </div>
+
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

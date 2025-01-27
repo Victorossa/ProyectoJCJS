@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados de la Encuesta</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Resultados de la Encuesta</h1>
+        <canvas id="finalResultsChart" width="400" height="200"></canvas>
+        <button onclick="window.location.href='index.html'">Volver</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Cargar datos almacenados en localStorage
+        const storedData = JSON.parse(localStorage.getItem("surveyData"));
+        if (storedData) {
+            const ctx = document.getElementById("finalResultsChart").getContext("2d");
+            new Chart(ctx, {
+                type: "bar",
+                data: {
+                    labels: storedData.labels,
+                    datasets: [{
+                        label: "Votos",
+                        data: storedData.data,
+                        backgroundColor: "rgba(75, 192, 192, 0.5)",
+                        borderColor: "rgba(75, 192, 192, 1)",
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            stepSize: 1
+                        }
+                    }
+                }
+            });
+        } else {
+            document.body.innerHTML = "<h2>No hay datos disponibles para mostrar.</h2>";
+        }
+    </script>
+</body>
+</html>
